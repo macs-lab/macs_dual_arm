@@ -2,7 +2,7 @@
 
 This driver enables controlling the dual-arm robots in an ROS environment. 
 - [x] Control single arm using Rviz with MoveIt! plugin
-- [ ] Control both arm using Rviz with MoveIt! plugin
+- [x] Control both arm using Rviz with MoveIt! plugin
 - [ ] Dual-arm visulization and simulation with robot cell included
 - [ ] Control the Hand-E grippers on both arms
 - [ ] Enable velocity control of both arms
