@@ -51,6 +51,21 @@ $ roslaunch macs_dual_arm single_arm_moveit_planning_execution.launch
 roslaunch macs_dual_arm single_arm_moveit_rviz.launch
 ```
 
+### Control both arms using Rviz with MoveIt! plugin
+- Power up the robot. Open and run the program ```external_control.urp``` on both robots.
+- Run the ur_robot_driver
+```
+$ roslaunch macs_dual_arm both_arm_bringup.launch
+```
+- Run the moveit ros move group
+```
+$ roslaunch macs_dual_arm both_arm_moveit_planning_execution.launch
+```
+- Start Rviz
+```
+roslaunch macs_dual_arm both_arm_moveit_rviz.launch
+```
+
 ## Authors
 
 * **Hui Xiao** - *Initial work, driver setup* - [xiaohuits](https://github.com/xiaohuits)
