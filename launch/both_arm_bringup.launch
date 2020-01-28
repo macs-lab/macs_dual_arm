@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-  <include file="$(find macs_ur_launch)/launch/left_arm_bringup.launch" ns="left_arm"/>
-  <include file="$(find macs_ur_launch)/launch/right_arm_bringup.launch" ns="right_arm"/>
+  <include file="$(find macs_dual_arm)/launch/left_arm_bringup.launch" ns="left_arm"/>
+  <include file="$(find macs_dual_arm)/launch/right_arm_bringup.launch" ns="right_arm"/>
 </launch>
