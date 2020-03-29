@@ -1,9 +1,9 @@
 # MACS Dual-Arm Robots ROS Driver
 
-This driver enables controlling the dual-arm robots in an ROS environment. 
+This driver enables controlling the dual-arm robots in a ROS environment and in Gazebo. 
 - [x] Control single arm using Rviz with MoveIt! plugin
 - [x] Control both arm using Rviz with MoveIt! plugin
-- [ ] Dual-arm visulization and simulation with robot cell included
+- [X] Dual-arm visulization and simulation in Gazebo with robot cell included
 - [ ] Control the Hand-E grippers on both arms
 - [ ] Enable velocity control of both arms
 - [ ] Enable force control of both arms
@@ -66,13 +66,25 @@ $ roslaunch macs_dual_arm both_arm_moveit_planning_execution.launch
 roslaunch macs_dual_arm both_arm_moveit_rviz.launch
 ```
 
+### Visualize both arms with robot cell in Gazebo
+
+- Clone this repository in your catkin workspace
+- Change the address to the mesh files in `macs_dual_arm/sdf/robot_cell.sdf`
+- Execute `catkin_make` in your catkin workspace
+- Run `roslaunch ur_e_gazebo ur5e_macs.launch limited:=true` to bring up the two UR5e arms attached to the robot cell in Gazebo
+
+## Todo
+
+- [ ] Add `moveIt!` groups for each manipulator so that they can be controlled separately in `RViz`.
+
 ## Authors
 
-* **Hui Xiao** - *Initial work, driver setup* - [xiaohuits](https://github.com/xiaohuits)
+- **Hui Xiao** - *Initial work, driver setup* - [xiaohuits](https://github.com/xiaohuits)
+- **Nishant Elkunchwar** - *Add both arms, design and add robot cell visual and collision geometries to gazebo world* - [thecountoftuscany](https://github.com/thecountoftuscany)
 
 ## License
 
-This driver is only for internal usage for now.
+This repository is only for internal usage for now.
 
 ## Acknowledgments
 

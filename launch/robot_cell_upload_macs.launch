@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>  
+  <!-- <param name="robot_cell_description" textfile="$(find ur_e_description)/urdf/robot_cell.sdf" /> -->
+  <param name="robot_cell_description" command="$(find xacro)/xacro --inorder '$(find ur_e_description)/urdf/robot_cell.sdf'" />
+</launch>
