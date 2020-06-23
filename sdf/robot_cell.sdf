@@ -11,8 +11,7 @@
               <geometry>
 	              <mesh>
 	              <!-- <uri>package://ur_e_description/meshes/robot_cell/visual/robot_cell.stl</uri> -->
-	                <uri>file:///home/username/macs_ws/src/macs_dual_arm/meshes/robot_cell/visual/robot_cell.stl</uri>
-                    <scale>0.001 0.001 0.001</scale>
+	                <uri>file:///home/abhishek/catkin_ws/src/macs_dual_arm/meshes/robot_cell/visual/robot_cell.dae</uri>
 	              </mesh>
               </geometry>
             </visual>
@@ -22,7 +21,7 @@
               <geometry>
 	              <mesh>
 	              <!-- <uri>package://ur_e_description/meshes/robot_cell/collision/robot_cell_simplified.stl</uri> -->
-	                <uri>file:///home/username/macs_ws/src/macs_dual_arm/meshes/robot_cell/collision/robot_cell_simplified.stl</uri>
+	                <uri>file:///home/abhishek/catkin_ws/src/macs_dual_arm/meshes/robot_cell/collision/robot_cell_simplified.stl</uri>
                     <scale>0.001 0.001 0.001</scale>
 	              </mesh>
               </geometry>
