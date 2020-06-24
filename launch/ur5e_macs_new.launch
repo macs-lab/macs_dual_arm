@@ -11,29 +11,34 @@
     <arg name="gui" value="$(arg gui)"/>
   </include>
 
-  <!-- send robot urdf to param server -->
-  <include file="$(find ur_e_description)/launch/ur5e_upload.launch">
+  <!-- FOR SOME REASON, THIS LAUNCH FILE IS REQUIRED EVEN IF THE SAME LAUNCH FILE IS CALLED IN THE RESPECTIVE NAMESPACES OF LEFT AND RIGHT ROBOT -->
+  <!-- BEST GUESS IS THAT A DECLARATION OF A "GLOBAL robot_description" IS NECESSARY, WHICH IS ACHIEVED BY THIS ur5e_upload.launch -->
+  <!-- send robot urdf to param server --> 
+  <include file="$(find ur5e_description)/launch/ur5e_upload.launch">
     <arg name="limited" value="$(arg limited)"/>
   </include>
 
   <!-- Robot cell -->
-  <node name="spawn_cell_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find macs_dual_arm)/sdf/robot_cell.sdf -sdf -R 1.5707 -model robot_cell" />
+  <param name="robot_cell_description"
+    command="$(find xacro)/xacro '$(find macs_dual_arm)/urdf/robot_cell.urdf.xacro'"/>
+  <node name="spawn_robot_cell" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_cell_description -model robot_cell -z 0.0" respawn="false" output="screen" />
+
 
   <!-- Left robot -->
   <group ns="left_robot">
           
       <!-- send robot urdf to param server -->
-      <include file="$(find ur_e_description)/launch/ur5e_upload.launch">
+      <include file="$(find ur5e_description)/launch/ur5e_upload.launch">
         <arg name="limited" value="$(arg limited)"/>
       </include>
       
       <!-- push robot_description to factory and spawn robot in gazebo -->
       <node name="spawn_robot_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model left_robot -z 1.46 -y 0.17 -x 0.5 -P 3.1416 -R -0.7854" respawn="false" output="screen" />
 
-      <include file="$(find ur_e_gazebo)/launch/controller_utils.launch"/>
-
+      <include file="$(find ur5e_gazebo)/launch/controller_utils.launch"/>
+      
       <!-- start this controller -->
-      <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur5e.yaml" command="load"/>
+      <rosparam file="$(find macs_dual_arm)/controller/arm_controller_two.yaml" command="load"/>
       <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
 
       <!-- load other controllers -->
@@ -44,17 +49,17 @@
   <group ns="right_robot">
           
       <!-- send robot urdf to param server -->
-      <include file="$(find ur_e_description)/launch/ur5e_upload.launch">
+      <include file="$(find ur5e_description)/launch/ur5e_upload.launch">
         <arg name="limited" value="$(arg limited)"/>
       </include>
       
       <!-- push robot_description to factory and spawn robot in gazebo -->
       <node name="spawn_robot_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model right_robot -z 1.46 -y -0.17 -x 0.5 -P 3.1416 -R 0.7854" respawn="false" output="screen" />
 
-      <include file="$(find ur_e_gazebo)/launch/controller_utils.launch"/>
+      <include file="$(find ur5e_gazebo)/launch/controller_utils.launch"/>
 
       <!-- start this controller -->
-      <rosparam file="$(find ur_e_gazebo)/controller/arm_controller_ur5e.yaml" command="load"/>
+      <rosparam file="$(find macs_dual_arm)/controller/arm_controller_two.yaml" command="load"/>
       <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
 
       <!-- load other controllers -->
