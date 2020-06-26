@@ -71,7 +71,7 @@ roslaunch macs_dual_arm both_arm_moveit_rviz.launch
 - Clone this repository in your catkin workspace
 - Change the address to the mesh files in `macs_dual_arm/sdf/robot_cell.sdf`
 - Execute `catkin_make` in your catkin workspace
-- Run `roslaunch macs_dual_arm ur5e_macs.launch limited:=true` to bring up the two UR5e arms attached to the robot cell in Gazebo
+- Run `roslaunch macs_dual_arm ur5e_macs_new.launch limited:=true` to bring up the two UR5e arms attached to the robot cell in Gazebo
 
 ## Todo
 
