@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="ur5e_hande" >
+
+  <!-- UR5e robot -->
+  <xacro:include filename="$(find macs_dual_arm)/urdf/ur5e_robot_joint_limited.urdf.xacro" />
+
+  <!-- Hand-E gripper -->
+  <xacro:include filename="$(find hande_description)/urdf/robotiq_hande.urdf.xacro"/>
+  <xacro:robotiq_hande prefix=""/>
+
+  <!-- Connect Hand-E to UR5e arm-->
+  <joint name="arm_to_hand" type="fixed">
+    <parent link="wrist_3_link" />
+    <child link = "robotiq_hande_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+  
+</robot>
