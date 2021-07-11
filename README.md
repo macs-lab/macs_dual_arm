@@ -82,6 +82,9 @@ roslaunch macs_dual_arm both_arm_moveit_rviz.launch
 - **Hui Xiao** - *Initial work, driver setup* - [xiaohuits](https://github.com/xiaohuits)
 - **Nishant Elkunchwar** - *Add both arms, design and add robot cell visual and collision geometries to gazebo world* - [thecountoftuscany](https://github.com/thecountoftuscany)
 
+- Advisor: [Xu Chen](https://faculty.washington.edu/chx/)
+- University of Washington
+
 ## License
 
 This repository is only for internal usage for now.
